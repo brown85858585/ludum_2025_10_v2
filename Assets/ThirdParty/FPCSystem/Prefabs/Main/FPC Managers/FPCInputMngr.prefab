@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1779518599662040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4311528302952482}
+  - component: {fileID: 114006045567234824}
+  m_Layer: 0
+  m_Name:InputMngr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4311528302952482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779518599662040}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114006045567234824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779518599662040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5aa5a586cd7ba64385d0344890b67f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 1
+  IsHorAxisActive: 0
+  HorizontalValue: 0
+  IsVertAxisActive: 0
+  VerticalValue: 0
+  horizontalKey:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  verticalKey:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  jumpKey:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  crouchKey:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  runKey:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  proneKey:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  pushKey:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  flashLightKey:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  flyKey:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  rocketKey:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  dayLightKey:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  IsAxisXActive: 0
+  MouseXValue: 0
+  IsAxisYActive: 0
+  MouseYValue: 0
+  fire1Key:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  fire2Key:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  fire3Key:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  f1Key:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  f2Key:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  f3Key:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  f4Key:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  f5Key:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  f6Key:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  f7Key:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  f8Key:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  f9Key:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  f10Key:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  f11Key:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  f12Key:
+    isDown: 0
+    isPressed: 0
+    isUp: 0
+  isForceForwardEnabled: 0
+  isForceRunEnabled: 0

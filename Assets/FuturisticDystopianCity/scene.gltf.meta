@@ -1,0 +1,109 @@
+fileFormatVersion: 2
+guid: 98499278d00514c49a7b72ba1baf8b3a
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 715df9372183c47e389bb6e19fbc3b52, type: 3}
+  editorImportSettings:
+    generateSecondaryUVSet: 1
+  importSettings:
+    nodeNameMethod: 0
+    animationMethod: 0
+    generateMipMaps: 1
+    defaultMinFilterMode: 9729
+    defaultMagFilterMode: 9729
+    anisotropicFilterLevel: 1
+  instantiationSettings:
+    mask: 2
+    layer: 0
+    skinUpdateWhenOffscreen: 0
+    lightIntensityFactor: 1
+    sceneObjectCreation: 1
+  assetDependencies:
+  - type: 0
+    originalUri: Assets/FuturisticDystopianCity/scene.bin
+    assetPath: Assets/FuturisticDystopianCity/scene.bin
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/Material_6_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/Material_6_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/Tile3_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/Tile3_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/Tile1_specularf0.png
+    assetPath: Assets/FuturisticDystopianCity/textures/Tile1_specularf0.png
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/ACunit4_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/ACunit4_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/Glass_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/Glass_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/Tile4_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/Tile4_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/ACunits2_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/ACunits2_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/RedPanels_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/RedPanels_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/Door1_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/Door1_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/Door1Frame_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/Door1Frame_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/Details_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/Details_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/MetalGrey_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/MetalGrey_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/Signs3_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/Signs3_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/WindowAGlass_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/WindowAGlass_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/Brick_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/Brick_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/Concrete_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/Concrete_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/FloorLargeA_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/FloorLargeA_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/FloorLargeA_metallicRoughness.png
+    assetPath: Assets/FuturisticDystopianCity/textures/FloorLargeA_metallicRoughness.png
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/YellowPaint_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/YellowPaint_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/MetalGrey.001_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/MetalGrey.001_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/Vent1_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/Vent1_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/ACUnit_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/ACUnit_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/RailingWire_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/RailingWire_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/Signs2_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/Signs2_baseColor.jpeg
+  - type: 1
+    originalUri: Assets/FuturisticDystopianCity/textures/Stonework_baseColor.jpeg
+    assetPath: Assets/FuturisticDystopianCity/textures/Stonework_baseColor.jpeg
+  reportItems:
+  - type: 2
+    code: 20
+    messages:
+    - KHR_materials_specular
