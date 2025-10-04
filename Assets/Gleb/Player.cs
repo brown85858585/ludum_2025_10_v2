@@ -7,7 +7,7 @@ using Mirror;
 */
 
 public class Player : NetworkBehaviour
-{    
+{
     #region Unity Callbacks
 
     /// <summary>
