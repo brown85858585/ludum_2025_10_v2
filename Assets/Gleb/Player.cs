@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
@@ -8,7 +7,7 @@ using Mirror;
 */
 
 public class Player : NetworkBehaviour
-{
+{    
     #region Unity Callbacks
 
     /// <summary>
@@ -18,6 +17,7 @@ public class Player : NetworkBehaviour
     {
         base.OnValidate();
     }
+
 
     // NOTE: Do not put objects in DontDestroyOnLoad (DDOL) in Awake.  You can do that in Start instead.
     void Awake()
@@ -30,13 +30,6 @@ public class Player : NetworkBehaviour
 
     void Update()
     {
-        if (isOwned) //проверяем, есть ли у нас права изменять этот объект
-        {
-            float h = Input.GetAxis("Horizontal");
-            float v = Input.GetAxis("Vertical");
-            float speed = 5f * Time.deltaTime;
-            transform.Translate(new Vector3(h * speed, 0, v * speed)); //делаем простейшее движение
-        }
     }
 
     #endregion
@@ -66,6 +59,13 @@ public class Player : NetworkBehaviour
     /// </summary>
     public override void OnStartClient()
     {
+        NetworkIdentity identity = GetComponent<NetworkIdentity>();
+        if (!identity.isLocalPlayer)
+        {
+            var cameras = GetComponentsInChildren<Camera>();
+            foreach (var camera in cameras)
+                camera.gameObject.SetActive(false);
+        }
     }
 
     /// <summary>
@@ -110,4 +110,9 @@ public class Player : NetworkBehaviour
     }
 
     #endregion
+
+    public void OnBulletHit()
+    {
+        Debug.Log("OnBulletHit");
+    }
 }

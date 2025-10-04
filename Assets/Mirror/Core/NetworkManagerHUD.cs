@@ -62,12 +62,16 @@ namespace Mirror
                 // Server + Client
                 if (GUILayout.Button("Host (Server + Client)"))
                     manager.StartHost();
+                if (Input.GetKeyUp(KeyCode.Alpha1))
+                    manager.StartHost(); // Host (Server + Client)
 #endif
 
                 // Client + IP (+ PORT)
                 GUILayout.BeginHorizontal();
 
                 if (GUILayout.Button("Client"))
+                    manager.StartClient();
+                if (Input.GetKeyUp(KeyCode.Alpha2))
                     manager.StartClient();
 
                 manager.networkAddress = GUILayout.TextField(manager.networkAddress);
@@ -92,6 +96,8 @@ namespace Mirror
 #else
                 if (GUILayout.Button("Server Only"))
                     manager.StartServer();
+                if (Input.GetKeyUp(KeyCode.Alpha3))
+                    manager.StartServer();
 #endif
             }
             else
@@ -99,6 +105,8 @@ namespace Mirror
                 // Connecting
                 GUILayout.Label($"Connecting to {manager.networkAddress}..");
                 if (GUILayout.Button("Cancel Connection Attempt"))
+                    manager.StopClient();
+                if (Input.GetKeyUp(KeyCode.Alpha4))
                     manager.StopClient();
             }
         }

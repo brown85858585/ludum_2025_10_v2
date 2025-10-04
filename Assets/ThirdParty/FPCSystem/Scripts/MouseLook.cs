@@ -1,10 +1,11 @@
 
+using Mirror;
 using UnityEngine;
 
 public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
 
 [AddComponentMenu("Camera-Control/Mouse Look")]
-public partial class MouseLook : MonoBehaviour
+public partial class MouseLook : NetworkBehaviour
 {
 	public RotationAxes axes = RotationAxes.MouseX;
 	public float sensitivityX = 5f;
@@ -96,6 +97,7 @@ public partial class MouseLook : MonoBehaviour
     {
         if (Pause.instance.IsPaused()) { return; }
 
+        if (!isLocalPlayer) return;
 
         //============================================================================================
         //

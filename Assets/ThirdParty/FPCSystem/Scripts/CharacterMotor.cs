@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 
 [System.Serializable]
 public class CharacterMotorMovement : object
@@ -218,7 +219,7 @@ public class CharacterMotorProperCollisions : object
 
 [RequireComponent(typeof(CharacterController))]
 [AddComponentMenu("Character/Character Motor")]
-public class CharacterMotor : MonoBehaviour
+public class CharacterMotor : NetworkBehaviour
 {
     [Tooltip("Does the character currently respond to input?")]
     public bool canControl = true;
@@ -486,6 +487,8 @@ public class CharacterMotor : MonoBehaviour
     void Update()
     {
         if (Pause.instance.IsPaused()) { return; }
+
+        if (!isLocalPlayer) return;
 
         if (!useFixedUpdate)
         {

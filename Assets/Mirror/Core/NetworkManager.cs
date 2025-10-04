@@ -7,9 +7,26 @@ using UnityEngine.Serialization;
 
 namespace Mirror
 {
-    public enum PlayerSpawnMethod { Random, RoundRobin }
-    public enum NetworkManagerMode { Offline, ServerOnly, ClientOnly, Host }
-    public enum HeadlessStartOptions { DoNothing, AutoStartServer, AutoStartClient }
+    public enum PlayerSpawnMethod
+    {
+        Random,
+        RoundRobin
+    }
+
+    public enum NetworkManagerMode
+    {
+        Offline,
+        ServerOnly,
+        ClientOnly,
+        Host
+    }
+
+    public enum HeadlessStartOptions
+    {
+        DoNothing,
+        AutoStartServer,
+        AutoStartClient
+    }
 
     [DisallowMultipleComponent]
     [AddComponentMenu("Network/Network Manager")]
@@ -30,7 +47,6 @@ namespace Mirror
 
         /// <summary>Should the server auto-start when 'Server Build' is checked in build settings</summary>
         [Header("Auto-Start Options")]
-
         [Tooltip("Choose whether Server or Client should auto-start in headless builds")]
         public HeadlessStartOptions headlessStartMode = HeadlessStartOptions.DoNothing;
 
@@ -113,8 +129,12 @@ namespace Mirror
         [FormerlySerializedAs("m_SpawnPrefabs"), HideInInspector]
         public List<GameObject> spawnPrefabs = new List<GameObject>();
 
+        [SerializeField]
+        private GameObject[] mySpawnPrefabs = new GameObject[5];
+
         /// <summary>List of transforms populated by NetworkStartPositions</summary>
         public static List<Transform> startPositions = new List<Transform>();
+
         public static int startPositionIndex;
 
         [Header("Security")]
@@ -378,7 +398,6 @@ namespace Mirror
                 authenticator.OnStartClient();
                 authenticator.OnClientAuthenticated.AddListener(OnClientAuthenticated);
             }
-
         }
 
         /// <summary>Starts the client, connects it to the server with networkAddress.</summary>
@@ -687,6 +706,7 @@ namespace Mirror
                     // Return false to not allow collision-destroyed second instance to continue.
                     return false;
                 }
+
                 //Debug.Log("NetworkManager created singleton (DontDestroyOnLoad)");
                 singleton = this;
                 if (Application.isPlaying)
@@ -749,6 +769,7 @@ namespace Mirror
             if (playerPrefab != null)
                 NetworkClient.RegisterPrefab(playerPrefab);
 
+            spawnPrefabs.AddRange(mySpawnPrefabs);
             foreach (GameObject prefab in spawnPrefabs.Where(t => t != null))
                 NetworkClient.RegisterPrefab(prefab);
         }
@@ -900,6 +921,7 @@ namespace Mirror
                         // Reset the flag that we disabled before entering this switch
                         NetworkClient.isLoadingScene = false;
                     }
+
                     break;
                 case SceneOperation.UnloadAdditive:
                     // Ensure additive scene is actually loaded on client by name or path
@@ -913,6 +935,7 @@ namespace Mirror
                         // Reset the flag that we disabled before entering this switch
                         NetworkClient.isLoadingScene = false;
                     }
+
                     break;
             }
 
@@ -940,6 +963,7 @@ namespace Mirror
                     NetworkServer.SpawnObjects();
                     // Debug.Log($"Respawned Server objects after additive scene load: {scene.name}");
                 }
+
                 if (NetworkClient.active)
                 {
                     NetworkClient.PrepareToSpawnSceneObjects();
@@ -1315,7 +1339,9 @@ namespace Mirror
         }
 
         /// <summary>Called on the server when a new client connects.</summary>
-        public virtual void OnServerConnect(NetworkConnectionToClient conn) { }
+        public virtual void OnServerConnect(NetworkConnectionToClient conn)
+        {
+        }
 
         /// <summary>Called on the server when a client disconnects.</summary>
         // Called by NetworkServer.OnTransportDisconnect!
@@ -1336,6 +1362,7 @@ namespace Mirror
                 // this is now allowed (was not for a while)
                 //Debug.Log("Ready with no player object");
             }
+
             NetworkServer.SetClientReady(conn);
         }
 
@@ -1355,16 +1382,24 @@ namespace Mirror
         }
 
         /// <summary>Called on server when transport raises an exception. NetworkConnection may be null.</summary>
-        public virtual void OnServerError(NetworkConnectionToClient conn, TransportError error, string reason) { }
+        public virtual void OnServerError(NetworkConnectionToClient conn, TransportError error, string reason)
+        {
+        }
 
         /// <summary>Called on server when transport raises an exception. NetworkConnection may be null.</summary>
-        public virtual void OnServerTransportException(NetworkConnectionToClient conn, Exception exception) { }
+        public virtual void OnServerTransportException(NetworkConnectionToClient conn, Exception exception)
+        {
+        }
 
         /// <summary>Called from ServerChangeScene immediately before SceneManager.LoadSceneAsync is executed</summary>
-        public virtual void OnServerChangeScene(string newSceneName) { }
+        public virtual void OnServerChangeScene(string newSceneName)
+        {
+        }
 
         /// <summary>Called on server after a scene load with ServerChangeScene() is completed.</summary>
-        public virtual void OnServerSceneChanged(string sceneName) { }
+        public virtual void OnServerSceneChanged(string sceneName)
+        {
+        }
 
         /// <summary>Called on the client when connected to a server. By default it sets client as ready and adds a player.</summary>
         public virtual void OnClientConnect()
@@ -1385,20 +1420,30 @@ namespace Mirror
         }
 
         /// <summary>Called on clients when disconnected from a server.</summary>
-        public virtual void OnClientDisconnect() { }
+        public virtual void OnClientDisconnect()
+        {
+        }
 
         /// <summary>Called on client when transport raises an exception.</summary>
-        public virtual void OnClientError(TransportError error, string reason) { }
+        public virtual void OnClientError(TransportError error, string reason)
+        {
+        }
 
         /// <summary>Called on client when transport raises an exception.</summary>
-        public virtual void OnClientTransportException(Exception exception) { }
+        public virtual void OnClientTransportException(Exception exception)
+        {
+        }
 
         /// <summary>Called on clients when a servers tells the client it is no longer ready, e.g. when switching scenes.</summary>
-        public virtual void OnClientNotReady() { }
+        public virtual void OnClientNotReady()
+        {
+        }
 
         /// <summary>Called from ClientChangeScene immediately before SceneManager.LoadSceneAsync is executed</summary>
         // customHandling: indicates if scene loading will be handled through overrides
-        public virtual void OnClientChangeScene(string newSceneName, SceneOperation sceneOperation, bool customHandling) { }
+        public virtual void OnClientChangeScene(string newSceneName, SceneOperation sceneOperation, bool customHandling)
+        {
+        }
 
         /// <summary>Called on clients when a scene has completed loaded, when the scene load was initiated by the server.</summary>
         // Scene changes can cause player objects to be destroyed. The default
@@ -1423,22 +1468,34 @@ namespace Mirror
         // from all versions, so users only need to implement this one case.
 
         /// <summary>This is invoked when a host is started.</summary>
-        public virtual void OnStartHost() { }
+        public virtual void OnStartHost()
+        {
+        }
 
         /// <summary>This is invoked when a server is started - including when a host is started.</summary>
-        public virtual void OnStartServer() { }
+        public virtual void OnStartServer()
+        {
+        }
 
         /// <summary>This is invoked when the client is started.</summary>
-        public virtual void OnStartClient() { }
+        public virtual void OnStartClient()
+        {
+        }
 
         /// <summary>This is called when a server is stopped - including when a host is stopped.</summary>
-        public virtual void OnStopServer() { }
+        public virtual void OnStopServer()
+        {
+        }
 
         /// <summary>This is called when a client is stopped.</summary>
-        public virtual void OnStopClient() { }
+        public virtual void OnStopClient()
+        {
+        }
 
         /// <summary>This is called when a host is stopped.</summary>
-        public virtual void OnStopHost() { }
+        public virtual void OnStopHost()
+        {
+        }
 
 #if DEBUG
         // keep OnGUI even in builds. useful to debug snap interp.
