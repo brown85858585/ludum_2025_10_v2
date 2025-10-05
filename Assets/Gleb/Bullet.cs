@@ -6,6 +6,9 @@ namespace Gleb
 {
     public class Bullet : NetworkBehaviour
     {
+        [HideInInspector] 
+        public int Damage; // берётся из пушки при спавне пули
+        
         uint owner;
         bool inited;
 
@@ -35,7 +38,7 @@ namespace Gleb
 
                 if (player.netId != owner)
                 {
-                    player.OnBulletHit();
+                    player.OnBulletHit(this);
                     NetworkServer.Destroy(gameObject); //уничтожаем пулю
                 }
             }

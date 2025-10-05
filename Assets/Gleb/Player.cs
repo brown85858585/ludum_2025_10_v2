@@ -1,5 +1,9 @@
+using Gleb;
 using UnityEngine;
 using Mirror;
+using TMPro;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 /*
     Documentation: https://mirror-networking.gitbook.io/docs/guides/networkbehaviour
@@ -8,6 +12,50 @@ using Mirror;
 
 public class Player : NetworkBehaviour
 {
+    public int Health = 100;
+
+    [FormerlySerializedAs("slider")]
+    public Slider hpBar;
+
+    public TMP_Text HPText;
+
+    [SyncVar(hook = nameof(SyncHealth))] //задаем метод, который будет выполняться при синхронизации переменной
+    int _SyncHealth;
+
+    //метод не выполнится, если старое значение равно новому
+    void SyncHealth(int oldValue, int newValue) //обязательно делаем два значения - старое и новое. 
+    {
+        Health = newValue;
+        hpBar.value = newValue;
+        HPText.text = Health.ToString();
+    }
+
+    [Server] //обозначаем, что этот метод будет вызываться и выполняться только на сервере
+    public void ChangeHealthValue(int newValue)
+    {
+        _SyncHealth = newValue;
+    }
+
+    [Command] //обозначаем, что этот метод должен будет выполняться на сервере по запросу клиента
+    public void CmdChangeHealth(int newValue) //обязательно ставим Cmd в начале названия метода
+    {
+        ChangeHealthValue(newValue); //переходим к непосредственному изменению переменной
+    }
+
+    [ClientRpc] //обозначаем, что этот метод будет выполняться на клиенте по запросу сервера
+    public void RpcTest() //обязательно ставим Rpc в начале названия метода
+    {
+        Debug.Log("Сервер попросил меня это написать");
+    }
+
+    public void OnBulletHit(Bullet bullet)
+    {
+        if (isServer) //если мы являемся сервером, то переходим к непосредственному изменению переменной
+            ChangeHealthValue(Health - bullet.Damage);
+        else
+            CmdChangeHealth(Health - bullet.Damage); //в противном случае делаем на сервер запрос об изменении переменной
+    }
+
     #region Unity Callbacks
 
     /// <summary>
@@ -26,10 +74,19 @@ public class Player : NetworkBehaviour
 
     void Start()
     {
+        if (isOwned)
+            hpBar.gameObject.SetActive(false);
+        
+        HPText.text = Health.ToString();
     }
 
     void Update()
     {
+        if (Camera.main != null)
+        {
+            hpBar.transform.LookAt(Camera.main.transform);
+            hpBar.transform.Rotate(0, 180, 0);
+        }
     }
 
     #endregion
@@ -110,9 +167,4 @@ public class Player : NetworkBehaviour
     }
 
     #endregion
-
-    public void OnBulletHit()
-    {
-        Debug.Log("OnBulletHit");
-    }
 }

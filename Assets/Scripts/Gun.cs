@@ -18,6 +18,9 @@ namespace Demo
         [SerializeField]
         Transform _origin;
 
+        [SerializeField]
+        int _damage = 20;
+        
         void Update()
         {
             if (!isOwned) return; //проверяем, есть ли у нас права изменять этот объект
@@ -43,6 +46,11 @@ namespace Demo
             if (!bullet.TryGetComponent(out Rigidbody rb))
             {
                 return;
+            }
+            
+            if (bullet.TryGetComponent(out Bullet component))
+            {
+                component.Damage = _damage;
             }
 
             rb.AddForce(_startSpeed * _origin.forward);
