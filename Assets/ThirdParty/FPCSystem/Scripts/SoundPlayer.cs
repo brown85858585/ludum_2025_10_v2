@@ -279,6 +279,7 @@ public class SoundPlayer : MonoBehaviour
 		if(MyObj == null)
 		{
 			Debug.LogError("SoundPlayer -> Player NOT Found!");
+            return;
 		}
 
 		transform.parent = MyObj.transform;
