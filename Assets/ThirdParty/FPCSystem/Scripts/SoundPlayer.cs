@@ -95,17 +95,6 @@ public class SwimSnd
 }
 
 [System.Serializable]
-public class FlySnd
-{
-    [Tooltip("Ratio to play the flying sound.")]
-    public float flyInterval = 0.75f;
-	public AudioClip airSound;
-    [Tooltip("Ratio to play the flying rocket special FX sound. (used when the player hots the impulse button, so pl gain velocity forward/up)")]
-    public float rocketInterval = 0.75f;
-    public AudioClip rocketSound;
-}
-
-[System.Serializable]
 public class InteractiveSnd
 {
     public AudioClip dragSound;

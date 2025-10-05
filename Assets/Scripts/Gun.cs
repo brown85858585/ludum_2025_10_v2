@@ -16,6 +16,8 @@ namespace Demo
         [SerializeField]
         Transform _origin;
     
+        public AudioSource ShootSound;
+
         void Update()
         {
             if (!Input.GetMouseButtonDown(0))
@@ -31,6 +33,8 @@ namespace Demo
         
             rb.AddForce(_startSpeed * _origin.forward);
             rb.gameObject.AddComponent<AutoDestroy>().DestroyTime = _bulletLifetime;
+
+            ShootSound.Play();
         }
     }
 
