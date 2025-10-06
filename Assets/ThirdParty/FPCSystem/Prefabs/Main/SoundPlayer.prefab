@@ -24,12 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1007952838737290}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4159347854264412}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &82061675867487942
 AudioSource:
@@ -42,6 +43,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: 1
@@ -160,12 +162,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082610340320700}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4159347854264412}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &82967812363450696
 AudioSource:
@@ -178,6 +181,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: 1
@@ -296,12 +300,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120131465575016}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4159347854264412}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &82470084666098938
 AudioSource:
@@ -314,6 +319,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: 1
@@ -423,9 +429,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129582893205134}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4641284907896822}
   - {fileID: 4000568843508990}
@@ -434,7 +442,6 @@ Transform:
   - {fileID: 4630436859700718}
   - {fileID: 4293995592400988}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114366274741539650
 MonoBehaviour:
@@ -450,25 +457,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stepSounds:
     defaultSteps:
-    - {fileID: 8300000, guid: aea6ba6c76abe9947a5540c6d37cc4cc, type: 3}
-    - {fileID: 8300000, guid: cbe4848e8df1d8a43b3846fed15898b1, type: 3}
+    - {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
+    - {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
     woodSteps:
-    - {fileID: 8300000, guid: 6f103730d26068043aa05bc6c223d450, type: 3}
-    - {fileID: 8300000, guid: 814a4264807b866458746ba42ad0a9c0, type: 3}
+    - {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
+    - {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
     metalSteps:
-    - {fileID: 8300000, guid: 5db3c1e3021a1e14ea6a8f1090be690a, type: 3}
-    - {fileID: 8300000, guid: 7a27403c6f1ab334caf00eedaa9b56d4, type: 3}
+    - {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
+    - {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
     concreteSteps:
-    - {fileID: 8300000, guid: 069e2efcb2e7aa24e955d1add7d5ed36, type: 3}
-    - {fileID: 8300000, guid: 639c93a6a1981214faedc32edef54e30, type: 3}
+    - {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
+    - {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
     sandSteps:
-    - {fileID: 8300000, guid: aea6ba6c76abe9947a5540c6d37cc4cc, type: 3}
-    - {fileID: 8300000, guid: cbe4848e8df1d8a43b3846fed15898b1, type: 3}
+    - {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
+    - {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
     waterSteps:
-    - {fileID: 8300000, guid: dd58a49db67c7c14c8a14a2b72c3dcaf, type: 3}
-    - {fileID: 8300000, guid: a2aa059a1bdb2b84c8f35f429945d8f0, type: 3}
+    - {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
+    - {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
     wallSteps:
-    - {fileID: 8300000, guid: 639c93a6a1981214faedc32edef54e30, type: 3}
+    - {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
   terrainStepSounds:
     texture0Steps:
     - {fileID: 8300000, guid: 487897e64756f244b96e850da20cba31, type: 3}
@@ -487,7 +494,6 @@ MonoBehaviour:
   walk:
     inAirDelay: 0.7
     jumpSound: {fileID: 8300000, guid: b600edfb219a72443abe9ec176d9fd8a, type: 3}
-    inAirSound: {fileID: 8300000, guid: d08dfdca3e8c23a4482c66ea021092df, type: 3}
     fallSoundNormal: {fileID: 8300000, guid: cbecd8b1b3caeb349825df6b55a92b2c, type: 3}
     fallSoundHigh: {fileID: 8300000, guid: eaf06477c2f3498479db16f8ebfc83dc, type: 3}
     fallDamageSound: {fileID: 8300000, guid: 8bc7846c638312544baba2100860db73, type: 3}
@@ -504,10 +510,8 @@ MonoBehaviour:
     crouchSound: {fileID: 8300000, guid: 454525ce8a203154381861a0dcbf9e85, type: 3}
     slideSound: {fileID: 8300000, guid: 118193397577cf246b06d1e049482e8f, type: 3}
   ladder:
-    ladderSoundDefault: {fileID: 8300000, guid: 1c7e0749626293e4ba002209e8f50677,
-      type: 3}
-    ladderSoundConcrete: {fileID: 8300000, guid: 1c7e0749626293e4ba002209e8f50677,
-      type: 3}
+    ladderSoundDefault: {fileID: 8300000, guid: 1c7e0749626293e4ba002209e8f50677, type: 3}
+    ladderSoundConcrete: {fileID: 8300000, guid: 1c7e0749626293e4ba002209e8f50677, type: 3}
     ladderSoundMetal: {fileID: 8300000, guid: d0c5fa539151100479f644dd65ccb565, type: 3}
     ladderSoundWood: {fileID: 8300000, guid: ec3f7be76eea555409e09ec7b0bcc3bd, type: 3}
   ledge:
@@ -515,8 +519,7 @@ MonoBehaviour:
     ledgeSoundDetect: {fileID: 8300000, guid: 1d0afa05fb3b39d4fba3cd17bc41ae59, type: 3}
     ledgeSoundWalk: {fileID: 8300000, guid: dd669f7ee994e854e9b1d9084288b882, type: 3}
     ledgeSoundClimb: {fileID: 8300000, guid: af0b12755f6f35c41a827b6af6a8ac32, type: 3}
-    lowLedgeSoundClimb: {fileID: 8300000, guid: dd669f7ee994e854e9b1d9084288b882,
-      type: 3}
+    lowLedgeSoundClimb: {fileID: 8300000, guid: dd669f7ee994e854e9b1d9084288b882, type: 3}
   swim:
     swimInterval: 2
     runInterval: 1
@@ -526,11 +529,6 @@ MonoBehaviour:
     headIn: {fileID: 8300000, guid: 6f11a2b34b399e74f99c1e69c429c7fd, type: 3}
     headOut: {fileID: 8300000, guid: 00eb9b14497b72544870ab73013555c1, type: 3}
     drownHurt: {fileID: 8300000, guid: ad3da893f5d18214baf673a09cf37675, type: 3}
-  fly:
-    flyInterval: 4.015
-    airSound: {fileID: 8300000, guid: 2561c9d17a1f24846b75c57323d06348, type: 3}
-    rocketInterval: 1.81
-    rocketSound: {fileID: 8300000, guid: 0bc100b415025364fb85f68e9c5bfc17, type: 3}
   interaction:
     dragSound: {fileID: 8300000, guid: ac74e84eac731d048823e1c9565fb6b9, type: 3}
     catchSound: {fileID: 8300000, guid: a26bf86ed7e10d742b8a15a31335f8c2, type: 3}
@@ -562,12 +560,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416447286377654}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4159347854264412}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &82974369272620454
 AudioSource:
@@ -579,7 +578,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3f92e1106d1c2ec4dbf83eded93ddc3d, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 3f92e1106d1c2ec4dbf83eded93ddc3d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.4
   m_Pitch: 1
@@ -689,12 +689,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574847488781812}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4159347854264412}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &82504888576857498
 AudioSource:
@@ -707,6 +708,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: 1
@@ -825,12 +827,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864025269523394}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4159347854264412}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &82990795917322370
 AudioSource:
@@ -843,6 +846,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: 1
