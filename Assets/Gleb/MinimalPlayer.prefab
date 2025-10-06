@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2066745254207068624}
   - component: {fileID: 6362460598285606585}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4510626801609741193}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 1408266791247677447}
   - component: {fileID: 1788543842294948768}
   - component: {fileID: 5416531806385489832}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 4549377337664204280}
   - component: {fileID: 6395425666757925518}
   - component: {fileID: 4943170915659042439}
-  m_Layer: 28
+  m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,7 +612,7 @@ GameObject:
   - component: {fileID: 2935786713575755662}
   - component: {fileID: 343560690896671590}
   - component: {fileID: 1394451048877947597}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 5087891814126418332}
   - component: {fileID: 3675207598264632884}
   - component: {fileID: 3636559012842142572}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -989,7 +989,7 @@ GameObject:
   - component: {fileID: 6657703216580819859}
   - component: {fileID: 3703558006458288469}
   - component: {fileID: 1139881956252894227}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1063,7 +1063,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1481915651611325773}
   - component: {fileID: 6218565100284449645}
-  m_Layer: 28
+  m_Layer: 0
   m_Name: GunOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1103,7 +1103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7838293764402822174}
-  m_Layer: 28
+  m_Layer: 0
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1136,7 +1136,7 @@ GameObject:
   - component: {fileID: 5238789681408736952}
   - component: {fileID: 3993166632286385927}
   - component: {fileID: 7016848988187579600}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1302,7 +1302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1282375327947236727}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1350,7 +1350,7 @@ GameObject:
   - component: {fileID: 6139227095277060944}
   - component: {fileID: 218716898772268389}
   - component: {fileID: 8973417242036582821}
-  m_Layer: 28
+  m_Layer: 0
   m_Name: MinimalPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1872,6 +1872,7 @@ MonoBehaviour:
   DeathSound: {fileID: 3823358635087661831}
   HP100Sound: {fileID: 2219172814270191726}
   HP50Sound: {fileID: 2628385051151377446}
+  score: 0
 --- !u!114 &6139227095277060944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1969,6 +1970,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shoot Sound
       objectReference: {fileID: 0}
+    - target: {fileID: 8678707587387082617, guid: dde49c21e612ef74ebdc5e98360905d7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8746083626959232738, guid: dde49c21e612ef74ebdc5e98360905d7, type: 3}
       propertyPath: m_Resource
       value: 
@@ -2047,6 +2052,10 @@ PrefabInstance:
     - target: {fileID: 8678707587387082617, guid: dde49c21e612ef74ebdc5e98360905d7, type: 3}
       propertyPath: m_Name
       value: Death Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678707587387082617, guid: dde49c21e612ef74ebdc5e98360905d7, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8746083626959232738, guid: dde49c21e612ef74ebdc5e98360905d7, type: 3}
       propertyPath: m_Resource
@@ -2143,6 +2152,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 50 HP Sound
       objectReference: {fileID: 0}
+    - target: {fileID: 8678707587387082617, guid: dde49c21e612ef74ebdc5e98360905d7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8746083626959232738, guid: dde49c21e612ef74ebdc5e98360905d7, type: 3}
       propertyPath: m_Resource
       value: 
@@ -2237,6 +2250,10 @@ PrefabInstance:
     - target: {fileID: 8678707587387082617, guid: dde49c21e612ef74ebdc5e98360905d7, type: 3}
       propertyPath: m_Name
       value: 100 HP Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678707587387082617, guid: dde49c21e612ef74ebdc5e98360905d7, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8746083626959232738, guid: dde49c21e612ef74ebdc5e98360905d7, type: 3}
       propertyPath: m_Resource
@@ -2388,6 +2405,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 494ff787a42b5324692c267c08e58962, type: 3}
       propertyPath: m_Name
       value: gun_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 494ff787a42b5324692c267c08e58962, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -25,7 +25,8 @@ public class Player : NetworkBehaviour
     public AudioSource HP100Sound;
     public AudioSource HP50Sound;
 
-
+    public int score;
+    
     [SyncVar(hook = nameof(SyncHealth))] //задаем метод, который будет выполняться при синхронизации переменной
     int _SyncHealth;
 
@@ -208,4 +209,20 @@ public class Player : NetworkBehaviour
     }
 
     #endregion
+
+    public void Pickup(Egg egg)
+    {
+        score++;
+    }
+    
+    void OnCollisionEnter(Collision collision)
+    {
+        Egg egg = collision.gameObject.GetComponent<Egg>();
+        if (egg)
+        {
+            Pickup(egg);
+            NetworkServer.Destroy(egg.gameObject); //уничтожаем яйцо
+        }
+        Debug.Log(gameObject.name + ": OnCollisionEnter called on player " + collision.gameObject.name);
+    }
 }
