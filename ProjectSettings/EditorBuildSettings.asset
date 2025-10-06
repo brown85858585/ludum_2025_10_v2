@@ -8,9 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/old/MainScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/old/IvanScene.unity
     guid: 0aa1d0e7d574ada45b0802d15634a359
+  - enabled: 1
+    path: Assets/Scenes/Holy_Eggs.unity
+    guid: 2128a43d67b264d4f8526ad8619f9a4b
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 42b00bd8db8c2ed49a2e89f19a50297f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
