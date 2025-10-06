@@ -6,38 +6,43 @@ namespace Gleb
     public class Egg : NetworkBehaviour
     {
         public AudioSource SpawnSound;
-
+        public GameObject PickupSoundPrefab;
+        public float startTime;
+        
+        uint owner;
+        bool inited;
         void Start()
         {
             SpawnSound.Play();
         }
-        
-        void OnCollisionEnter(Collision collision)
+
+        [Server]
+        public void Init(uint owner)
         {
-            Debug.LogError(gameObject.name + ": OnCollisionEnter called on player " + collision.gameObject.name);
+            startTime = Time.time;
+            this.owner = owner; //кто отложил яйцо
+            inited = true;
+        }
+
+        void OnTriggerEnter(Collider collision)
+        {
+            if (!inited)
+                return;
+            
             Player player = collision.gameObject.GetComponent<Player>();
             if (player)
             {
-                player.Pickup(this);
+                float elapsedTime = Time.time - startTime;
+                if (player.netId == owner && elapsedTime < 1f)
+                    return;
+                
+                player.OnPickupEgg();
+                GameObject sound = Instantiate(PickupSoundPrefab, collision.gameObject.transform.position, Quaternion.identity);
+                var aso = sound.GetComponent<AudioSource>();
+                aso.Play();
+                sound.gameObject.AddComponent<AutoDestroy>().DestroyTime = aso.time;
+                
                 NetworkServer.Destroy(gameObject); //уничтожаем яйцо
-            }
-            else
-            {
-                Debug.Log(gameObject.name + ": OnCollisionEnter called on player " + collision.gameObject.name);
-            }
-        }
-
-        void OnControllerColliderHit(ControllerColliderHit hit)
-        {
-            Player player = hit.gameObject.GetComponent<Player>();
-            if (player)
-            {
-                player.Pickup(this);
-                NetworkServer.Destroy(gameObject); //уничтожаем яйцо
-            }
-            else
-            {
-                Debug.Log(gameObject.name + ": OnControllerColliderHit called on player " + hit.gameObject.name);
             }
         }
     }
