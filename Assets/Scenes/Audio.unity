@@ -291,7 +291,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6cd9bda5b77bfcf46b0dc8aabc08253b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -10528,10 +10528,6 @@ PrefabInstance:
       value: SoundPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 4159347854264412, guid: c1fbfb2c26b102f439e9baab4caec2e9, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4159347854264412, guid: c1fbfb2c26b102f439e9baab4caec2e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -10559,6 +10555,58 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4159347854264412, guid: c1fbfb2c26b102f439e9baab4caec2e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159347854264412, guid: c1fbfb2c26b102f439e9baab4caec2e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159347854264412, guid: c1fbfb2c26b102f439e9baab4caec2e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114366274741539650, guid: c1fbfb2c26b102f439e9baab4caec2e9, type: 3}
+      propertyPath: walk.jumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 40e525a923426334085aa6c94ee00beb, type: 3}
+    - target: {fileID: 114366274741539650, guid: c1fbfb2c26b102f439e9baab4caec2e9, type: 3}
+      propertyPath: walk.fallSoundHigh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114366274741539650, guid: c1fbfb2c26b102f439e9baab4caec2e9, type: 3}
+      propertyPath: walk.fallDamageSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114366274741539650, guid: c1fbfb2c26b102f439e9baab4caec2e9, type: 3}
+      propertyPath: walk.fallSoundNormal
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114366274741539650, guid: c1fbfb2c26b102f439e9baab4caec2e9, type: 3}
+      propertyPath: 'stepSounds.woodSteps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
+    - target: {fileID: 114366274741539650, guid: c1fbfb2c26b102f439e9baab4caec2e9, type: 3}
+      propertyPath: 'stepSounds.woodSteps.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
+    - target: {fileID: 114366274741539650, guid: c1fbfb2c26b102f439e9baab4caec2e9, type: 3}
+      propertyPath: 'stepSounds.metalSteps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
+    - target: {fileID: 114366274741539650, guid: c1fbfb2c26b102f439e9baab4caec2e9, type: 3}
+      propertyPath: 'stepSounds.metalSteps.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
+    - target: {fileID: 114366274741539650, guid: c1fbfb2c26b102f439e9baab4caec2e9, type: 3}
+      propertyPath: 'stepSounds.defaultSteps.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
+    - target: {fileID: 114366274741539650, guid: c1fbfb2c26b102f439e9baab4caec2e9, type: 3}
+      propertyPath: 'stepSounds.defaultSteps.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3d9cc7cf7fceafc4986052f338e58841, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12720,7 +12768,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5953198603761931268, guid: 1eaf089f34034f947aac3bd61aecc5b9, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 6abc7496925e82c40a081e97f3a26156, type: 3}
+  m_Resource: {fileID: 8300000, guid: 566665b6ac425394a835862dfd813278, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
