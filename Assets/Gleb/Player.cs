@@ -17,7 +17,14 @@ public class Player : NetworkBehaviour
     [FormerlySerializedAs("slider")]
     public Slider hpBar;
 
+    public GameObject EggPrefab;
+    
     public TMP_Text HPText;
+
+    public AudioSource DeathSound;
+    public AudioSource HP100Sound;
+    public AudioSource HP50Sound;
+
 
     [SyncVar(hook = nameof(SyncHealth))] //задаем метод, который будет выполняться при синхронизации переменной
     int _SyncHealth;
@@ -28,7 +35,6 @@ public class Player : NetworkBehaviour
         Health = newValue;
         hpBar.value = newValue;
         HPText.text = Health.ToString();
-            
     }
 
     [Server] //обозначаем, что этот метод будет вызываться и выполняться только на сервере
@@ -38,14 +44,44 @@ public class Player : NetworkBehaviour
         if (newValue <= 0)
         {
             RpcOnDead();
+            SpawnEgg();
+            return;
         }
+
+        if (newValue <= 50)
+        {
+            RpcHit50();
+            return;
+        }
+
+        RpcHit100();
+    }
+
+    [Server]
+    public void SpawnEgg()
+    {
+        GameObject egg = Instantiate(EggPrefab, gameObject.transform.position, Quaternion.identity); //Создаем локальный объект пули на сервере
+        NetworkServer.Spawn(egg); //отправляем информацию о сетевом объекте всем игрокам.
     }
 
     [ClientRpc] //обозначаем, что этот метод будет выполняться на клиенте по запросу сервера
     private void RpcOnDead() //обязательно ставим Rpc в начале названия метода
     {
-        Debug.Log("RpcOnDead: " + this.netId);
+        DeathSound.Play();
     }
+
+    [ClientRpc]
+    private void RpcHit50()
+    {
+        HP50Sound.Play();
+    }
+
+    [ClientRpc]
+    private void RpcHit100()
+    {
+        HP100Sound.Play();
+    }
+
 
     [Command] //обозначаем, что этот метод должен будет выполняться на сервере по запросу клиента
     public void CmdChangeHealth(int newValue) //обязательно ставим Cmd в начале названия метода
@@ -81,7 +117,7 @@ public class Player : NetworkBehaviour
     {
         if (isOwned)
             hpBar.gameObject.SetActive(false);
-        
+
         HPText.text = Health.ToString();
     }
 

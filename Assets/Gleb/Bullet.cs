@@ -31,11 +31,6 @@ namespace Gleb
             Player player = collision.gameObject.GetComponent<Player>();
             if (player)
             {
-                foreach (ContactPoint contact in collision.contacts)
-                {
-                    Debug.DrawRay(contact.point, contact.normal, Color.red, 5f);
-                }
-
                 if (player.netId != owner)
                 {
                     player.OnBulletHit(this);
