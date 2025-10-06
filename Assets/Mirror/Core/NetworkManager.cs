@@ -130,7 +130,7 @@ namespace Mirror
         public List<GameObject> spawnPrefabs = new List<GameObject>();
 
         [SerializeField]
-        private GameObject[] mySpawnPrefabs = new GameObject[5];
+        private GameObject[] mySpawnPrefabs;
 
         /// <summary>List of transforms populated by NetworkStartPositions</summary>
         public static List<Transform> startPositions = new List<Transform>();

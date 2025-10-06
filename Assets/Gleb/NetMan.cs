@@ -196,8 +196,6 @@ public class NetMan : NetworkManager
 
     #region Client System Callbacks
 
-    bool playerConnected;
-
     /// <summary>
     /// Called on the client when connected to a server.
     /// <para>The default implementation of this function sets the client as ready and adds a player. Override the function to dictate what happens when the client connects.</para>
@@ -205,7 +203,7 @@ public class NetMan : NetworkManager
     public override void OnClientConnect()
     {
         base.OnClientConnect();
-        playerConnected = true;
+        // playerConnected = true;
         ActivatePlayerSpawn();
     }
 

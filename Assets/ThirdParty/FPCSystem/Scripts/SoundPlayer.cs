@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using System.Collections;
 
@@ -73,6 +72,7 @@ public class LedgeSnd
 {
     [Tooltip("Ratio to play the ledge movement sound (used when the moves on a ledge).")]
     public float ledgeInterval = 1.3f;
+
     public AudioClip ledgeSoundDetect;
     public AudioClip ledgeSoundWalk;
     public AudioClip ledgeSoundClimb;
@@ -84,8 +84,10 @@ public class SwimSnd
 {
     [Tooltip("Ratio to play the swimming sound (used to swimming using a linear speed - not when using strokes).")]
     public float swimInterval = 2;
+
     [Tooltip("Ratio to play the swimming 'fast' sound (used to swimming using a linear speed - not when using strokes).")]
     public float runInterval = 1;
+
     public AudioClip swimSound;
     public AudioClip waterIn;
     public AudioClip waterOut;
@@ -107,35 +109,40 @@ public class InteractiveSnd
 public class SoundPlayer : MonoBehaviour
 {
     [Header("Basic Step Sounds")]
-	public StepSnd stepSounds = new StepSnd();
-	public TerrainStepSnd terrainStepSounds = new TerrainStepSnd();
+    public StepSnd stepSounds = new StepSnd();
+
+    public TerrainStepSnd terrainStepSounds = new TerrainStepSnd();
 
     [Header("Extended Sounds")]
     public WalkSnd walk = new WalkSnd();
-	public ProneSnd prone = new ProneSnd();
-	public CrouchSnd crouch = new CrouchSnd();
-	public LadderSnd ladder = new LadderSnd();
-	public LedgeSnd ledge = new LedgeSnd();
-	public SwimSnd swim = new SwimSnd();
-	public InteractiveSnd interaction = new InteractiveSnd();
+
+    public ProneSnd prone = new ProneSnd();
+    public CrouchSnd crouch = new CrouchSnd();
+    public LadderSnd ladder = new LadderSnd();
+    public LedgeSnd ledge = new LedgeSnd();
+    public SwimSnd swim = new SwimSnd();
+    public InteractiveSnd interaction = new InteractiveSnd();
 
     [Header("Debug Control")]
     [Tooltip("Enable/Disable all 'Debug.Log' messages from this script.")]
     public bool showDebug = false;
+
     [Tooltip("Enable/Disable all 'Debug.DrawRay' messages from this script.")]
     public bool showDebugRay = false;
 
     private GameObject MyObj;
-	private Status statusSrc;
+    private Status statusSrc;
+
     private CharacterMotor motor;
+
     //private CharacterController controller;
     private Core coreScr;
 
     private float interval = 0.5f; // Important 0.5 secs in silence.just when everything configures itself.
-	private float sprintBreathInterval = 0.5f; // Important 0.5 secs in silence.just when everything configures itself.
+    private float sprintBreathInterval = 0.5f; // Important 0.5 secs in silence.just when everything configures itself.
     private bool JumpPlayed;
 
-	private float rocketInterval = 0.5f;
+    private float rocketInterval = 0.5f;
     private AudioSource rocketAS;
 
     private AudioSource flyAirAS;
@@ -152,76 +159,132 @@ public class SoundPlayer : MonoBehaviour
     {
         if (cTag.Contains("wood"))
             platformClip = stepSounds.woodSteps[Random.Range(0, stepSounds.woodSteps.Length)];
-		else if (cTag.Contains("metal"))
-			platformClip = stepSounds.metalSteps[Random.Range(0, stepSounds.metalSteps.Length)];
-		else if (cTag.Contains("concrete"))
-			platformClip = stepSounds.concreteSteps[Random.Range(0, stepSounds.concreteSteps.Length)];
-		else if (cTag.Contains("dirt"))
-			platformClip = stepSounds.sandSteps[Random.Range(0, stepSounds.sandSteps.Length)];
-		else  if (cTag.Contains("sand"))
-			platformClip = stepSounds.sandSteps[Random.Range(0, stepSounds.sandSteps.Length)];
-		else  if (cTag.Contains("water"))
-			platformClip = stepSounds.waterSteps[Random.Range(0, stepSounds.waterSteps.Length)];
-		else
-			platformClip = stepSounds.sandSteps[Random.Range(0, stepSounds.sandSteps.Length)];
+        else if (cTag.Contains("metal"))
+            platformClip = stepSounds.metalSteps[Random.Range(0, stepSounds.metalSteps.Length)];
+        else if (cTag.Contains("concrete"))
+            platformClip = stepSounds.concreteSteps[Random.Range(0, stepSounds.concreteSteps.Length)];
+        else if (cTag.Contains("dirt"))
+            platformClip = stepSounds.sandSteps[Random.Range(0, stepSounds.sandSteps.Length)];
+        else if (cTag.Contains("sand"))
+            platformClip = stepSounds.sandSteps[Random.Range(0, stepSounds.sandSteps.Length)];
+        else if (cTag.Contains("water"))
+            platformClip = stepSounds.waterSteps[Random.Range(0, stepSounds.waterSteps.Length)];
+        else
+            platformClip = stepSounds.sandSteps[Random.Range(0, stepSounds.sandSteps.Length)];
     }
 
     // generic function called from whatever you need to play any kind of sound effect.
-    public AudioSource PlaySound(AudioClip _clip) { return PlayClip(_clip); }
+    public AudioSource PlaySound(AudioClip _clip)
+    {
+        return PlayClip(_clip);
+    }
 
-    public AudioSource PlayLocatedSound(AudioClip _clip, Vector3 _position) { return PlayLocatedClip(_clip, _position); }
-    
+    public AudioSource PlayLocatedSound(AudioClip _clip, Vector3 _position)
+    {
+        return PlayLocatedClip(_clip, _position);
+    }
+
     // Function called by Status when jumping.
-    public void PlayJump() { PlayClip(walk.jumpSound); }
+    public void PlayJump()
+    {
+        PlayClip(walk.jumpSound);
+    }
 
     // Function called by Status when kick happens.
-    public void PlaySimpleKick() { PlayClip(walk.kickSound); }
+    public void PlaySimpleKick()
+    {
+        PlayClip(walk.kickSound);
+    }
 
     // Function called by Status when side kick happens.
-    public void PlaySideKick() { PlayClip(walk.sideKickSound); }
+    public void PlaySideKick()
+    {
+        PlayClip(walk.sideKickSound);
+    }
 
     // Function called by Status when kick happens over an enemy.
-    public void PlayAboveKick() { PlayClip(walk.aboveKickSound); }
+    public void PlayAboveKick()
+    {
+        PlayClip(walk.aboveKickSound);
+    }
 
     // Function called by Status when Fall Hurt happens.
-    public void PlayFallHurt() { PlayClip(walk.fallDamageSound); }
+    public void PlayFallHurt()
+    {
+        PlayClip(walk.fallDamageSound);
+    }
 
     // Function called by Status when Fall Hurt happens.
-    public void PlayFallHigh() { PlayClip(walk.fallSoundNormal); }
+    public void PlayFallHigh()
+    {
+        PlayClip(walk.fallSoundNormal);
+    }
 
     // Function called by Status when Fall Hurt happens.
-    public void PlayFallNormal() { PlayClip(walk.fallSoundNormal); }
+    public void PlayFallNormal()
+    {
+        PlayClip(walk.fallSoundNormal);
+    }
 
     // Function called by FOCStatus script when player is crouching .
-    public void CrouchGoingDownUP() { PlayClip(crouch.downUpSound); }
+    public void CrouchGoingDownUP()
+    {
+        PlayClip(crouch.downUpSound);
+    }
 
     // Function called by FOCStatus script when player is crouching .
-    public void ProneGoingDownUP() { PlayClip(prone.downUpSound); }
+    public void ProneGoingDownUP()
+    {
+        PlayClip(prone.downUpSound);
+    }
 
     // Function called by Underwater script when player get the surface .
-    public void PlayBreath() { PlayClip(swim.headOut); }
+    public void PlayBreath()
+    {
+        PlayClip(swim.headOut);
+    }
 
     // Function called by Underwater script when player start diving.
-    public void PlayDrown() { PlayClip(swim.headIn); }
+    public void PlayDrown()
+    {
+        PlayClip(swim.headIn);
+    }
 
     // Function called by Status when Fall Hurt happens.
-    public void DrownHurt() { PlayClip(swim.drownHurt); }
+    public void DrownHurt()
+    {
+        PlayClip(swim.drownHurt);
+    }
 
     // Function called by LedgeJS when ledge is detected (hit sound?).
-    public void LedgeDetect() { PlayClip(ledge.ledgeSoundDetect); }
+    public void LedgeDetect()
+    {
+        PlayClip(ledge.ledgeSoundDetect);
+    }
 
     // Function called by LedgeJS when the player is climbing in the ledge.
-    public void LedgeClimb() { PlayClip(ledge.ledgeSoundClimb); }
+    public void LedgeClimb()
+    {
+        PlayClip(ledge.ledgeSoundClimb);
+    }
 
     // Function called by LedgeJS when the pl is climbing in the lowledge.
-    public void LowLedgeClimb() { PlayClip(ledge.lowLedgeSoundClimb); }
+    public void LowLedgeClimb()
+    {
+        PlayClip(ledge.lowLedgeSoundClimb);
+    }
 
     // Function called by Core when the pl is sliding & proning.
-    public void PlayProneSlide() { PlayClip(prone.slideSound); }
+    public void PlayProneSlide()
+    {
+        PlayClip(prone.slideSound);
+    }
 
     // Function called by Core when the player is sliding & proning.
-    public void PlayCrouchSlide() { PlayClip(crouch.slideSound); }
-
+    public void PlayCrouchSlide()
+    {
+        PlayClip(crouch.slideSound);
+    }
 
 
     // Function call by Swim script, when player enter in the water (or get out).
@@ -236,7 +299,10 @@ public class SoundPlayer : MonoBehaviour
     // Function called by Status when sprint stops consuming all the time.
     public void PlaySprintBreath()
     {
-        if (statusSrc.isClimbing || statusSrc.isJumping) { return; }
+        if (statusSrc.isClimbing || statusSrc.isJumping)
+        {
+            return;
+        }
 
         if (Time.time > sprintBreathInterval)
         {
@@ -247,10 +313,16 @@ public class SoundPlayer : MonoBehaviour
 
     // Interaction sound calls.
     // Function called by CatchObjectJS when the player has catched an object.
-    public void PlayCatch() { PlayClip(interaction.catchSound); }
+    public void PlayCatch()
+    {
+        PlayClip(interaction.catchSound);
+    }
 
     // Function called by CatchObjectJS when the player has catched an object.
-    public void PlayDrag() { dragAS = PlayClip(interaction.dragSound); }
+    public void PlayDrag()
+    {
+        dragAS = PlayClip(interaction.dragSound);
+    }
 
     // Function called by CatchObjectJS when the player has catched an object.
     public void StopDrag()
@@ -263,10 +335,16 @@ public class SoundPlayer : MonoBehaviour
     }
 
     // Function called by CatchObjectJS when the player has catched an object.
-    public void PlayLaunch() { PlayClip(interaction.launchSound); }
+    public void PlayLaunch()
+    {
+        PlayClip(interaction.launchSound);
+    }
 
     // Function called by CatchObjectJS when the player has catched an object.
-    public void PlayDrop() { PlayClip(interaction.dropSound); }
+    public void PlayDrop()
+    {
+        PlayClip(interaction.dropSound);
+    }
 
     ///=================================================================
     ///
@@ -275,24 +353,24 @@ public class SoundPlayer : MonoBehaviour
     ///=================================================================
     void Awake()
     {
-		MyObj = GameObject.FindWithTag("Player"); // other way: GameObject.Find("Player");
-		if(MyObj == null)
-		{
-			Debug.LogError("SoundPlayer -> Player NOT Found!");
+        MyObj = GameObject.FindWithTag("Player"); // other way: GameObject.Find("Player");
+        if (MyObj == null)
+        {
+            Debug.LogError("SoundPlayer -> Player NOT Found!");
             return;
-		}
+        }
 
-		transform.parent = MyObj.transform;
-		transform.localPosition = Vector3.zero;
-		transform.localRotation = Quaternion.identity;
-		statusSrc = MyObj.GetComponent<Status>();
-		statusSrc.SetSoundPlayerSrc(this);
+        transform.parent = MyObj.transform;
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
+        statusSrc = MyObj.GetComponent<Status>();
+        statusSrc.SetSoundPlayerSrc(this);
     }
 
-	void Start()
-	{
-		coreScr = statusSrc.GetCoreScr();
-		//controller = StatusSrc.GetController();
+    void Start()
+    {
+        coreScr = statusSrc.GetCoreScr();
+        //controller = StatusSrc.GetController();
         motor = statusSrc.GetMotor();
     }
 
@@ -312,6 +390,9 @@ public class SoundPlayer : MonoBehaviour
 
     void PlayFootStep(EventParam eventParam)
     {
+        if (statusSrc == null)
+            return;
+
         // Make sure we move are the are grounded or wallrunning (not in air, flying, ladder or ledge).
         if (!statusSrc.isStop && !statusSrc.isInLadder && !statusSrc.isInLedge &&
             (motor.IsGrounded() || statusSrc.isWallRunning))
@@ -359,8 +440,9 @@ public class SoundPlayer : MonoBehaviour
     }
 
     private AudioSource swimFXAS;
-    void Update(){
 
+    void Update()
+    {
         // Emergency code to stop a ledge movement sound when we stop moving laterally or when jump is detected 
         if (LedgeAS != null && (statusSrc.isJumping || statusSrc.isStop))
         {
@@ -369,20 +451,22 @@ public class SoundPlayer : MonoBehaviour
             interval = 0;
         }
 
+        if (statusSrc == null)
+            return;
+
         // if Player is not moving, let all sounds to finish.
         if (statusSrc.isStop && !statusSrc.isJumping)
         {
             JumpPlayed = false;
-            
+
             // If we were walking laterally in a ledge, stop the walk sound. (Again: emergency code to rescue!).
             if (statusSrc.isInLedge && LedgeAS != null)
                 LedgeAS.Stop();
-           
-			return;
+
+            return;
         }
         else
         {
-
             // Walk, prone, crouch, climb(ladder), swim & dive effects
             // All depends on an interval that makes them repeat to achieve the desired step effect or depends on camera bobbing movement
             // to sincronize the steps sound with the camera movement.
@@ -406,9 +490,12 @@ public class SoundPlayer : MonoBehaviour
     // Plays a sound clip. If it isn't any free, create one to play the effect and destroy it.
     public AudioSource PlayClip(AudioClip _clip)
     {
-        if (_clip == null) { return null; }
+        if (_clip == null)
+        {
+            return null;
+        }
 
-		AudioSource AS = SoundManager.instance.FindFreeAS();
+        AudioSource AS = SoundManager.instance.FindFreeAS();
         if (AS != null)
         {
             AS.transform.parent = this.transform;
@@ -421,7 +508,7 @@ public class SoundPlayer : MonoBehaviour
         }
         else
         {
-            if(showDebug) Debug.Log("SoundPlayer -> Playing clip :"+_clip.name);
+            if (showDebug) Debug.Log("SoundPlayer -> Playing clip :" + _clip.name);
             AS = SoundManager.instance.ForceAS();
             if (AS != null)
             {
@@ -430,13 +517,17 @@ public class SoundPlayer : MonoBehaviour
                 ForcePlay(AS, _clip);
             }
         }
+
         return AS;
     }
 
     // Plays a sound clip. If it isn't any free, create one to play the effect and destroy it.
     public AudioSource PlayLocatedClip(AudioClip _clip, Vector3 position)
     {
-        if (_clip == null) { return null; }
+        if (_clip == null)
+        {
+            return null;
+        }
 
         AudioSource AS = SoundManager.instance.FindFreeAS();
         if (AS != null)
@@ -452,18 +543,18 @@ public class SoundPlayer : MonoBehaviour
         else
         {
             if (showDebug) Debug.Log("SoundPlayer -> Playing clip :" + _clip.name);
-            
+
             AS = SoundManager.instance.ForceAS();
             if (AS != null)
-            { 
+            {
                 if (showDebug) Debug.LogWarning("SoundPlayer -> NOT free AS to play sound effect. Force Play");
                 AS.transform.position = position;
                 ForcePlay(AS, _clip);
             }
         }
+
         return AS;
     }
-
 
 
     // Play an effect even if there isn't any AudioSource available.
@@ -481,10 +572,10 @@ public class SoundPlayer : MonoBehaviour
 
     public AudioClip GetStepAudio()
     {
-		string cTag = string.Empty;
+        string cTag = string.Empty;
         AudioClip myClip = null;
 
-		cTag = coreScr.GetTagBelow().ToLower();
+        cTag = coreScr.GetTagBelow().ToLower();
         if (showDebug) Debug.Log("SoundPlayer -> GetStepAudio() -> GetGroundTag: " + cTag);
 
         if (cTag.Contains("Untagged"))
@@ -493,20 +584,20 @@ public class SoundPlayer : MonoBehaviour
             myClip = stepSounds.defaultSteps[Random.Range(0, stepSounds.defaultSteps.Length)];
         else if (cTag.Contains("wood"))
             myClip = stepSounds.woodSteps[Random.Range(0, stepSounds.woodSteps.Length)];
-        else  if (cTag.Contains("metal"))
-			myClip = stepSounds.metalSteps[Random.Range(0, stepSounds.metalSteps.Length)];
-		else if (cTag.Contains("concrete"))
-			myClip = stepSounds.concreteSteps[Random.Range(0, stepSounds.concreteSteps.Length)];
-		else  if (cTag.Contains("dirt"))
-			myClip = stepSounds.sandSteps[Random.Range(0, stepSounds.sandSteps.Length)];
-		else if (cTag.Contains("sand"))
-			myClip = stepSounds.sandSteps[Random.Range(0, stepSounds.sandSteps.Length)];
-		else  if (cTag.Contains("water"))
-			myClip = stepSounds.waterSteps[Random.Range(0, stepSounds.waterSteps.Length)];
-		else if (cTag.Contains("platform"))
-			myClip = platformClip;
-		else if (cTag.Contains("terrain"))
-		{
+        else if (cTag.Contains("metal"))
+            myClip = stepSounds.metalSteps[Random.Range(0, stepSounds.metalSteps.Length)];
+        else if (cTag.Contains("concrete"))
+            myClip = stepSounds.concreteSteps[Random.Range(0, stepSounds.concreteSteps.Length)];
+        else if (cTag.Contains("dirt"))
+            myClip = stepSounds.sandSteps[Random.Range(0, stepSounds.sandSteps.Length)];
+        else if (cTag.Contains("sand"))
+            myClip = stepSounds.sandSteps[Random.Range(0, stepSounds.sandSteps.Length)];
+        else if (cTag.Contains("water"))
+            myClip = stepSounds.waterSteps[Random.Range(0, stepSounds.waterSteps.Length)];
+        else if (cTag.Contains("platform"))
+            myClip = platformClip;
+        else if (cTag.Contains("terrain"))
+        {
             int index = TerrainTextureDetector.GetMainTexture(transform.position);
             switch (index)
             {
@@ -545,9 +636,9 @@ public class SoundPlayer : MonoBehaviour
                     break;
             }
         }
-		else
-			myClip = stepSounds.defaultSteps[Random.Range(0, stepSounds.defaultSteps.Length)];
-		
+        else
+            myClip = stepSounds.defaultSteps[Random.Range(0, stepSounds.defaultSteps.Length)];
+
         return myClip;
     }
 
@@ -560,11 +651,11 @@ public class SoundPlayer : MonoBehaviour
         string cTag = "";
         Vector3 dir = transform.TransformDirection(Vector3.forward);
 
-        if(showDebugRay) Debug.DrawRay(transform.position + dir*0.5f, dir*5.0f);
-        if (Physics.Raycast(transform.position,  dir, out hit, 1, hitLayer))
+        if (showDebugRay) Debug.DrawRay(transform.position + dir * 0.5f, dir * 5.0f);
+        if (Physics.Raycast(transform.position, dir, out hit, 1, hitLayer))
             cTag = hit.collider.tag.ToLower();
 
-        if (showDebug) Debug.Log("SoundPlayer -> GetLadderAudio() -> GetLadderTag: " + cTag +" in the object: "+hit.collider.name);
+        if (showDebug) Debug.Log("SoundPlayer -> GetLadderAudio() -> GetLadderTag: " + cTag + " in the object: " + hit.collider.name);
         AudioClip myClip = null;
         switch (cTag)
         {
@@ -581,7 +672,7 @@ public class SoundPlayer : MonoBehaviour
                 myClip = ladder.ladderSoundDefault;
                 break;
         }
+
         return myClip;
     }
-
 }

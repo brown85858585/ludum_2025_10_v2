@@ -28,24 +28,29 @@ public class Player : NetworkBehaviour
         Health = newValue;
         hpBar.value = newValue;
         HPText.text = Health.ToString();
+            
     }
 
     [Server] //обозначаем, что этот метод будет вызываться и выполняться только на сервере
     public void ChangeHealthValue(int newValue)
     {
         _SyncHealth = newValue;
+        if (newValue <= 0)
+        {
+            RpcOnDead();
+        }
+    }
+
+    [ClientRpc] //обозначаем, что этот метод будет выполняться на клиенте по запросу сервера
+    private void RpcOnDead() //обязательно ставим Rpc в начале названия метода
+    {
+        Debug.Log("RpcOnDead: " + this.netId);
     }
 
     [Command] //обозначаем, что этот метод должен будет выполняться на сервере по запросу клиента
     public void CmdChangeHealth(int newValue) //обязательно ставим Cmd в начале названия метода
     {
         ChangeHealthValue(newValue); //переходим к непосредственному изменению переменной
-    }
-
-    [ClientRpc] //обозначаем, что этот метод будет выполняться на клиенте по запросу сервера
-    public void RpcTest() //обязательно ставим Rpc в начале названия метода
-    {
-        Debug.Log("Сервер попросил меня это написать");
     }
 
     public void OnBulletHit(Bullet bullet)
